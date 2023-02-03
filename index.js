@@ -1,13 +1,11 @@
-const express = require('express')
+require('dotenv').config();
 
-const server = express()
+const server = require('./api/server.js');
 
-const port = 9000
+const hostname = '127.0.0.1';
+const PORT = process.env.PORT || 9000;
 
-server.listen(port, () => {
-    res.json('hello there')
-})
-
-server.listen(port, () => {
-    console.log('lisening on port 9000')
-})
+server.listen(PORT, () => {
+    console.log(`*** Server listening on http://localhost:${PORT} ***`);
+    console.log(`*** Server listening on http://${hostname}:${PORT} ***`);
+});
